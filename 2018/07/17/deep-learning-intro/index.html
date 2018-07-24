@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>Deep Learning이란 무엇인가? (by Evan Moon) | Lubycon Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="- 들어가며이번 포스팅에서는 딥러닝이 무엇인지, 기존의 뉴럴네트워크와 다른 점이 무엇인지에 대해서 포스팅하려고 한다. Artificial Neural Network란?인류는 과거부터 생각하는 기계를 만드려는 노력을 해왔다.그 과정에서 다양한 시도들이 있었고, 결국 고안해낸 방법은 인간의 뇌를 프로그래밍해보자는 것이였다. 이런 발상이 가능했던 것은 현대에 이">
+<meta name="keywords" content="Machine Learning,Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning이란 무엇인가? (by Evan Moon)">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/deep-learning-intro/index.html">
+<meta property="og:site_name" content="Lubycon Blog">
+<meta property="og:description" content="- 들어가며이번 포스팅에서는 딥러닝이 무엇인지, 기존의 뉴럴네트워크와 다른 점이 무엇인지에 대해서 포스팅하려고 한다. Artificial Neural Network란?인류는 과거부터 생각하는 기계를 만드려는 노력을 해왔다.그 과정에서 다양한 시도들이 있었고, 결국 고안해낸 방법은 인간의 뇌를 프로그래밍해보자는 것이였다. 이런 발상이 가능했던 것은 현대에 이">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/neural.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/artificial-neural-network.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/single-layer-network.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/or.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/and.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/xor.png">
+<meta property="og:updated_time" content="2018-07-19T00:57:57.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep Learning이란 무엇인가? (by Evan Moon)">
+<meta name="twitter:description" content="- 들어가며이번 포스팅에서는 딥러닝이 무엇인지, 기존의 뉴럴네트워크와 다른 점이 무엇인지에 대해서 포스팅하려고 한다. Artificial Neural Network란?인류는 과거부터 생각하는 기계를 만드려는 노력을 해왔다.그 과정에서 다양한 시도들이 있었고, 결국 고안해낸 방법은 인간의 뇌를 프로그래밍해보자는 것이였다. 이런 발상이 가능했던 것은 현대에 이">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/17/deep-learning-intro/neural.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Lubycon Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css'><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lubycon Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Connect Your Creativity with the World</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-deep-learning-intro" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/17/deep-learning-intro/" class="article-date">
+  <time datetime="2018-07-17T14:33:03.000Z" itemprop="datePublished">2018-07-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/machine-learning/">Machine Learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Deep Learning이란 무엇인가? (by Evan Moon)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="들어가며"><a href="#들어가며" class="headerlink" title="- 들어가며"></a>- 들어가며</h4><p>이번 포스팅에서는 딥러닝이 무엇인지, 기존의 뉴럴네트워크와 다른 점이 무엇인지에 대해서 포스팅하려고 한다.</p>
+<h3 id="Artificial-Neural-Network란"><a href="#Artificial-Neural-Network란" class="headerlink" title="Artificial Neural Network란?"></a>Artificial Neural Network란?</h3><p>인류는 과거부터 생각하는 기계를 만드려는 노력을 해왔다.<br>그 과정에서 다양한 시도들이 있었고, 결국 고안해낸 방법은 <strong>인간의 뇌를 프로그래밍</strong><br>해보자는 것이였다. 이런 발상이 가능했던 것은 현대에 이르러 인간의 뇌의 구조를 어느 정도 알 수 있었기 때문이기도 하고 이 구조가 생각보다 단순하다는 점도 있었다.</p>
+<center><img src="/2018/07/17/deep-learning-intro/neural.png"></center>
+
+<p>인간의 뇌는 이 <code>뉴런</code>이라고 불리는 세포들의 집합체이다. 이 <code>뉴런</code>들은 그냥 어떠한 신호를 받은 후에 변조한 다음 다시 전달하는 세포인데, 뇌는 결국 이 뉴런들이 그물망처럼 연결되어있는 구조인 것이다.<br>결론적으로 인간의 뇌의 구조는 굉장히 복잡하게 <code>연결</code>되어있지만 그 <code>연결체</code>인 뉴런 자체는 놀랍도록 단순한 구조로 되어있었다는 것이 된다.</p>
+<p>이 <code>뉴런</code>들은 <code>수상돌기</code>에서 input신호를 받아 <code>축색돌기</code>로 output신호를 전송하는 구조인데 이때 다음 <code>뉴런</code>으로 신호가 전달되기 위해서는 일정 기준, 즉 <code>threshold</code> 이상의 전기 신호를 넘겨야한다. 좀 더 자세히 알아보자면 대략 다음 순서를 따른다고 한다.</p>
+<hr>
+<ol>
+<li><p>뉴런에 연결되어 있는 여러 개의 시냅스로 부터 신호를 받는다.<br>이때 신호는 분비된 화학물질의 양(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>)과 분비되는 시간(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span>)의 곱으로 나타내어 질 수 있다.</p>
+</li>
+<li><p>여러 개의 시냅스로부터 받은 여러 개의 신호를 합친다.</p>
+</li>
+<li><p>다음 시냅스로 전달하기 전에 특정한 값(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span>)이 더해진다.</p>
+</li>
+<li><p>이 값이 특정 임계점을 넘어가면 신호가 다음 시냅스로 전달된다.</p>
+</li>
+</ol>
+<hr>
+<p>그냥 순서만 보면 꽤 간단해 보인다. 그럼 이걸 기계로도 만들 수 있지 않을까? 라는데서 출발한 것이 <code>Artificial Neural Network</code>인 것이다. 이 뉴런의 작동방식은 다음과 같이 도식화 될 수 있다.</p>
+<center><img src="/2018/07/17/deep-learning-intro/artificial-neural-network.jpg"></center>
+
+<p>수식으로 나타내면 다음과 같다.</p>
+<center><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>x</mi><mi>i</mi></msub><msub><mi>w</mi><mi>i</mi></msub><mo>+</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(\sum\limits_{i=1}^n x_i w_i + b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.3513970000000004em;"></span><span class="strut bottom" style="height:2.329066em;vertical-align:-0.9776689999999999em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mop op-limits"><span class="vlist"><span style="top:0.8776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.000005000000000088267em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol small-op mop">∑</span></span></span><span style="top:-0.9500050000000002em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit">b</span><span class="mclose">)</span></span></span></span></center>
+
+<p>이때 이 함수 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span>를 <code>Activation Funcntion</code>이라고 하고 이 함수는 함수 내부의 값이 <code>threshold</code>를 넘어가면 <code>1</code>을 리턴하고 아니면 <code>0</code>을 리턴하는 함수이다.<br>이것이 하나의 <code>뉴런</code>이라고 생각하면 이 <code>뉴런</code>을 여러 개 모아본다면 대략 아래와 같은 구조가 될 것이다.</p>
+<center><img src="/2018/07/17/deep-learning-intro/single-layer-network.jpg"></center>
+
+<p>그리고 이런 형태의 기계는 이미 1950년대에 개발되어 <code>AND</code>나 <code>OR</code>문제 같은 선형방정식은 풀 수 있을 정도였다.</p>
+<h3 id="암흑기의-도래"><a href="#암흑기의-도래" class="headerlink" title="암흑기의 도래"></a>암흑기의 도래</h3><p>자 그럼 여기서 한가지 의문이 생긴다.</p>
+<hr>
+<p>아니 지금은 21세기하고도 18년이나 지난 2018년인데, 1950년대에 이미 저기까지 개발이 됐으면 지금은 로봇이 나 대신 일도 해주고 어? 빨래도 해주고 어? 해야하는 거 아니냐!</p>
+<hr>
+<p>하는 생각이 들 수도 있다. 우선 아까 말한 <code>AND</code>와 <code>OR</code>를 다시 보자.</p>
+<center><img src="/2018/07/17/deep-learning-intro/or.png"><img src="/2018/07/17/deep-learning-intro/and.png"></center>
+
+<p><code>AND</code>와 <code>OR</code>는 선형방정식이기 때문에 1950년대에 개발한 <code>Single Layer Network</code>를 적용한 기계로도 이런 문제를 푸는 건 별로 어렵지 않았다.<br>여기까지 성공한 사람들은 <strong>대박이다. 이제 금방 기계가 걷고 뛰고 말도 할 수 있겠구나!</strong><br>라고 생각했지만.. <code>XOR</code>가 등장하면 어떨까?</p>
+<center><img src="/2018/07/17/deep-learning-intro/xor.png"></center>
+
+<p>와 이건 어떻게 선을 그어도 도저히 답이 없다. <code>XOR</code>는 두개의 인풋이 <code>같지 않으면 true</code>인 논리식이다. 굉장히 단순해보였지만 <code>XOR</code>는 선형방정식이 아니기 때문에 직선으로는 50%의 정확도밖에 낼 수 없었다. 여기까지 직면한 사람들은 좌절하게 된다.</p>
+<blockquote><p>We need to use MLP, Multi Layer Perceptrons.<br>No one on earth had found a viable way to train MLPs good enough to learn such simple functions.</p>
+<footer><strong>Perceptrons(1969)</strong><cite>Marvin Minsky</cite></footer></blockquote>
+<p>결국 1969년 <strong>Marvin Minsky</strong> 가 <code>Single Layer Network</code>로는 <code>XOR</code>문제를 풀 수 없다는 것을 수학적으로 증명한다. <code>Multi Layer Network</code>로는 가능한데 아무도 학습시킬 수 없다고 했단다.<br>이 이유에 대해서 좀 더 알아보고 싶어서 <code>Perceptrons</code>의 구문을 찾아보니</p>
+<blockquote><p>it ought to be possible to devise a training alhorithm to optimize the weights in thie using, say, the magnitude of a reinforcement signal to communicate to the net the cost of an error. We have not investigated this.</p>
+<footer><strong>Perceptrons(1969)</strong><cite>Marvin Minsky</cite></footer></blockquote>
+<p>라고 한다. 구글링 하다보니까 <code>Perceptrons</code>라는 책은<br>“<code>XOR</code>가 <code>Single Layer Network</code>로 왜 학습이 안되는 지에 대해서 집중적으로 설명하고나서 <code>Multi Layer Network</code>로 되는 건 알겠는데 어떻게 해야하는 지는 아직 잘 모르겠다.” 정도로 쓴 책이라는 의견도 있었다.<br>어찌됐던 이 책으로 인해 많은 사람들이 실망을 하게 되고 이로 인해 <code>Neural Network</code>라는 학문 자체가 암흑기에 빠지게 된다.</p>
+<h3 id="다시-재기의-시간"><a href="#다시-재기의-시간" class="headerlink" title="다시 재기의 시간"></a>다시 재기의 시간</h3><p>1974년 <strong>Paul Werbos</strong> 는 자신의 박사학위 논문에 <code>Backpropagation</code>이라는 알고리즘을 게재하게 된다.<br>그러나 슬프게도 아무도 관심을 가지지 않았고 심지어 <code>Perceptrons</code>의 저자인 <strong>Marvin Minsky</strong> 마저도 관심을 안가져줬다고 한다. 심지어 1982년도에 다시 논문을 발표하게 됐는데 이때도 그냥 묻혔다고 한다…<br>그러다가 1986년, <strong>Geoffrey Hinton</strong> 이 독자적으로 이 알고리즘을 다시 발견하고 발표하게 되면서 주목을 받게된다.<br>어쨋든 이 알고리즘으로 인해 <code>Multi Layer Network</code>의 학습이 가능하다는 사실이 알려지고 다시 <code>Neural Network</code> 학문은 활기를 띄게 된다.<br>이 <code>Backpropagation</code>이라는 알고리즘의 구조는 간단하다. 그냥 말 그대로 에러를 output에서 가까운 쪽부터 뒤로(Back) 전파(Propagation)하는 것이다. 그래서 <code>역전파알고리즘</code>이라고도 불린다.<br>이 <code>Backpropagation</code>에 대해서는 별도 포스팅에서 다시 다루도록 하겠다.</p>
+<p>이상으로 Deep Learning 첫번째 포스팅을 마치겠습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/17/deep-learning-intro/" data-id="cjjz49mo10009srwg259pixsm" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deep-learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/24/extra-consideration-of-chain-rule/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          Chain Rule에 대한 추가적인 고찰 (by Jim)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/14/ai-study-log-week-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">2주차 스터디 일지 Lubycon-AI</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/study-log/">study-log</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/">Linear Algebra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">Machine Learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/deep-learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/linear-algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/machine-learning/" style="font-size: 20px;">Machine Learning</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">7월 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/24/extra-consideration-of-chain-rule/">Chain Rule에 대한 추가적인 고찰 (by Jim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/17/deep-learning-intro/">Deep Learning이란 무엇인가? (by Evan Moon)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/14/ai-study-log-week-2/">2주차 스터디 일지 Lubycon-AI</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/ml-study-week-2/">Machine Learning study 2주차 (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/ai-study-log-week-1/">1주차 스터디 일지 Lubycon-AI</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Lubycon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
