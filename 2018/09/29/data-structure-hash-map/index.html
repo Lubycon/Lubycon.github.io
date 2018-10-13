@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim) | Lubycon Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hash table 란 무엇인가?해쉬 테이블은 자료 구조 중 제일 중요하다고 손꼽힐 정도로 기본적이면서도 실제 실무에서도 자주 쓰이는 자료 구조 중 하나이다. 가장 쉽게 표현할 수 있는 예제가 도서관에서의 책장을 표현할 수 있다. 총 9 칸으로 이뤄진 책장이라고 생각을 했을 때, 만약 도서관 사서 라면 책을 어떻게 구분을 할 수 있을까? 아마도 필자라면 ㄱ">
+<meta name="keywords" content="Hash table">
+<meta property="og:type" content="article">
+<meta property="og:title" content="해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)">
+<meta property="og:url" content="http://yoursite.com/2018/09/29/data-structure-hash-map/index.html">
+<meta property="og:site_name" content="Lubycon Blog">
+<meta property="og:description" content="Hash table 란 무엇인가?해쉬 테이블은 자료 구조 중 제일 중요하다고 손꼽힐 정도로 기본적이면서도 실제 실무에서도 자주 쓰이는 자료 구조 중 하나이다. 가장 쉽게 표현할 수 있는 예제가 도서관에서의 책장을 표현할 수 있다. 총 9 칸으로 이뤄진 책장이라고 생각을 했을 때, 만약 도서관 사서 라면 책을 어떻게 구분을 할 수 있을까? 아마도 필자라면 ㄱ">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap01.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap02.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap03.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap04.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap05.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap07.png">
+<meta property="og:updated_time" content="2018-10-09T09:32:38.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)">
+<meta name="twitter:description" content="Hash table 란 무엇인가?해쉬 테이블은 자료 구조 중 제일 중요하다고 손꼽힐 정도로 기본적이면서도 실제 실무에서도 자주 쓰이는 자료 구조 중 하나이다. 가장 쉽게 표현할 수 있는 예제가 도서관에서의 책장을 표현할 수 있다. 총 9 칸으로 이뤄진 책장이라고 생각을 했을 때, 만약 도서관 사서 라면 책을 어떻게 구분을 할 수 있을까? 아마도 필자라면 ㄱ">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/29/data-structure-hash-map/hashmap01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Lubycon Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lubycon Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Connect Your Creativity with the World</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-data-structure-hash-map" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/29/data-structure-hash-map/" class="article-date">
+  <time datetime="2018-09-28T15:27:18.000Z" itemprop="datePublished">2018-09-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Hash-table-란-무엇인가"><a href="#Hash-table-란-무엇인가" class="headerlink" title="Hash table 란 무엇인가?"></a>Hash table 란 무엇인가?</h2><p>해쉬 테이블은 자료 구조 중 제일 중요하다고 손꼽힐 정도로 기본적이면서도 실제 실무에서도 자주 쓰이는 자료 구조 중 하나이다. 가장 쉽게 표현할 수 있는 예제가 도서관에서의 책장을 표현할 수 있다. 총 9 칸으로 이뤄진 책장이라고 생각을 했을 때, 만약 도서관 사서 라면 책을 어떻게 구분을 할 수 있을까? 아마도 필자라면 ㄱ으로 시작하면 첫번째칸, ㄷ으로 시작하면 3번째칸 과 같은 규칙으로 한글 자음 순서대로 구분을 할 것이다.</p>
+<center><img src="/2018/09/29/data-structure-hash-map/hashmap01.png"></center>
+
+<p>이렇게 분류를 하게 되면 새로 추가를 할 때도 혹은 책을 찾을 때도 정해진 규칙대로 찾을 수 있어 쉬워질 것이다. 이처럼 해시 테이블은 <code>데이터 검색을 효율적</code>으로 하기 위해 사용되는 자료 구조이다.</p>
+<h2 id="Hash-table-의-구조"><a href="#Hash-table-의-구조" class="headerlink" title="Hash table 의 구조"></a>Hash table 의 구조</h2><p>해쉬 테이블은 키(key)와 값(value)이 한 쌍이 되는 데이터들의 집합체이다. 해쉬 테이블 은 아래의 사진과 같이 데이터를 hash function 을 통해 해싱을 한 후, 배열 안에 저장을 하는 형태이다.</p>
+<center><img src="/2018/09/29/data-structure-hash-map/hashmap02.png"></center>
+
+<p>위에서 배열 안에 저장을 하려면 미리 배열의 크기가 지정이 되어있어야 한다. 다른 한편으로는 해시 테이블의 성능은 공간을 팔아 얻어낸 성능이라고도 한다.</p>
+<h2 id="Hash-table-의-개념"><a href="#Hash-table-의-개념" class="headerlink" title="Hash table 의 개념"></a>Hash table 의 개념</h2><p>사람과 그 사람의 역할에 대한 데이터를 한번 해쉬 테이블을 이용하여 구현을 해보겠다. 역할은 Director, Designer, Developer, Project Owner(PO) 로 총 가지의 역할로 나누고 사람들을 할당해보겠다. 아마 아래와 같은 형태로 구현이 될 것이다.</p>
+<center><img src="/2018/09/29/data-structure-hash-map/hashmap03.png"></center>
+
+<p>이 중 <code>Martin</code> 이라는 사람의 역할을 찾아보려고 한다고 했을 때, 처음에는 Martin 이 어느 공간에 저장되어 있는지 알 수 가 없을 것이다. 그렇다면 Index 번호 0번부터 해서 탐색을 할 것이다. 이 경우 데이터를 읽으려 할때 걸리는 시간 복잡도는 O(n) 선형탐색 이다. 이러한 탐색은 데이터의 양이 비례해서 시간 복잡도가 늘어나는 구조라서 방대한 양의 데이터를 다루는 데에는 좋지 않은 구조이다. 이 때 배열 안에 저장을 할 때 해시 함수를 이용해 저장을 하면 위와 같은 문제점을 해결할 수 있다.</p>
+<h3 id="Hash-function"><a href="#Hash-function" class="headerlink" title="Hash function"></a>Hash function</h3><p>해쉬 함수란 주어진 데이터를 고정 길이의 불규칙한 숫자로 변환하는 함수를 가르킨다. 여기에서 이 불규칙한 숫자는 데이터를 요약한 것이다. 대체적으로 해시 테이블과 함께 쓰여지며, 빠른 데이터 검색을 위한 소프트웨어에서 많이 사용된다.</p>
+<p>해시 함수를 구현 방법에 대한 예제는 다음과 같다. 일단 Martin 이라는 데이터를 ASCII 코드로 변환을 해보겠다. </p>
+<center><img src="/2018/09/29/data-structure-hash-map/hashmap04.png"></center>
+
+<p>위의 ASCII 코드는 10진수를 이용해서 변환한 값이다. 이렇게해서 얻은 값을 각자 더한다.</p>
+<blockquote>
+<p>77 + 97 + 114 + 116 + 105 + 110 = 619</p>
+</blockquote>
+<p>여기에서 첫번째 방법은 배열의 length 값을 가지고 할당을 하는 방법이다. 위에서 말했듯 해시 테이블은 먼저 공간을 할당한다. 그렇다면 그 공간의 갯수를 구할 수 있을 것이고 그 공간 안에 위에서 구한 총합을 나누면 된다.</p>
+<center><img src="/2018/09/29/data-structure-hash-map/hashmap05.png"></center>
+
+<p>위와 같이 하게 되면 좋은 점은 어떠한 값이든 할당한 공간의 크기를 넘지는 못할 것이다.</p>
+<p>다시 해시 테이블로 돌아와서 위의 John, Martin, Susan 그리고 Irene 을 해시 테이블 자료 구조 안에 저장을 하면 다음과 같을 것이다. (방식은 위에서 위에서 설명한 hash function 을 가지고 ACSII 코드 변환 후 저장하였다.)</p>
+<p>John(74+111+104+110=399), Susan(83+117+115+97+110), Irene(73+114+101+110+101=499) 의 각각의 나머지는 John 은 4, Susan 은 0, Irene 은 4 이다. 차례대로 넣으면 Irene 까지는 문제가 없이 대입이 된다. 하지만 Irene 의 경우 값을 배열에 담으려고 하니, 이미 John 이 해당 Index 에 값이 들어가 있다. 이런 경우를 <code>충돌</code> 이라고 표현을 한다. 이 경우는 배열 안에 List 형태로 값을 넣어주면 된다.</p>
+<center><img src="/2018/09/29/data-structure-hash-map/hashmap07.png"></center>
+
+<p>위와 같이 충돌이 발생하는 경우 자료 구조 리스트를 사용해서 기존의 데이터 뒤에 연결하는 경우를 <code>연쇄법 또는 체이닝</code> 이라고 표현한다. 이 방법 외에도 충돌을 해결하는 방법은 <code>개방 주소법</code> 등 몇가지가 더 있다. 필요 혹은 상황에 따라서 충돌을 해결하면 된다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/29/data-structure-hash-map/" data-id="cjn6uy6o3000yhvwg14awjbo8" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash-table/">Hash table</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/05/data-structure-tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          트리(Tree)이란 무엇인가? - (by Martin Kim)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/29/data-structure-array-and-list/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/study-log/">study-log</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-table/">Hash table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">Heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/">Linear Algebra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-and-array/">List and Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop-programming/">OOP Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue-and-stack/">Queue and Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solid-principle/">SOLID Principle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">Tree</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/array/" style="font-size: 10px;">Array</a> <a href="/tags/data-structure/" style="font-size: 13.33px;">Data Structure</a> <a href="/tags/deep-learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/graph/" style="font-size: 10px;">Graph</a> <a href="/tags/hash-table/" style="font-size: 10px;">Hash table</a> <a href="/tags/heap/" style="font-size: 10px;">Heap</a> <a href="/tags/linear-algebra/" style="font-size: 13.33px;">Linear Algebra</a> <a href="/tags/list/" style="font-size: 10px;">List</a> <a href="/tags/list-and-array/" style="font-size: 10px;">List and Array</a> <a href="/tags/machine-learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/oop-programming/" style="font-size: 13.33px;">OOP Programming</a> <a href="/tags/queue/" style="font-size: 10px;">Queue</a> <a href="/tags/queue-and-stack/" style="font-size: 10px;">Queue and Stack</a> <a href="/tags/solid-principle/" style="font-size: 10px;">SOLID Principle</a> <a href="/tags/stack/" style="font-size: 10px;">Stack</a> <a href="/tags/tree/" style="font-size: 13.33px;">Tree</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">7월 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/13/about-heap/">about heap</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/13/concept-of-data-structure/">Concept of Data Structure (by Jim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/05/data-structure-tree/">트리(Tree)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/29/data-structure-hash-map/">해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/29/data-structure-array-and-list/">리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Lubycon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

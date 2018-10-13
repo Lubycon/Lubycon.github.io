@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim) | Lubycon Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Array 란 무엇인가?배열이란 간단히 이야기하면 여러개의 데이터의 묶음이라고 할 수 있다. 많은 개발자들이 배열하면 굉장히 익숙하게 와닿을 수 있는 것은 어느 언어에나 있는 배열이라는 자료구조가 존재하기 때문이다. 그래서 한번이라도 사용해본 경험이 있다면 인덱스 번호로 원하는 배열에 접근하는 것을 볼 수 있을 것이다. 1234const arr = [&apos;Ap">
+<meta name="keywords" content="List and Array,Array,List">
+<meta property="og:type" content="article">
+<meta property="og:title" content="리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)">
+<meta property="og:url" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/index.html">
+<meta property="og:site_name" content="Lubycon Blog">
+<meta property="og:description" content="Array 란 무엇인가?배열이란 간단히 이야기하면 여러개의 데이터의 묶음이라고 할 수 있다. 많은 개발자들이 배열하면 굉장히 익숙하게 와닿을 수 있는 것은 어느 언어에나 있는 배열이라는 자료구조가 존재하기 때문이다. 그래서 한번이라도 사용해본 경험이 있다면 인덱스 번호로 원하는 배열에 접근하는 것을 볼 수 있을 것이다. 1234const arr = [&apos;Ap">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array01.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array02.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array03.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array04.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array05.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array06.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array07.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/list01.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/list02.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/list03.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/list04.png">
+<meta property="og:updated_time" content="2018-10-09T09:32:38.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)">
+<meta name="twitter:description" content="Array 란 무엇인가?배열이란 간단히 이야기하면 여러개의 데이터의 묶음이라고 할 수 있다. 많은 개발자들이 배열하면 굉장히 익숙하게 와닿을 수 있는 것은 어느 언어에나 있는 배열이라는 자료구조가 존재하기 때문이다. 그래서 한번이라도 사용해본 경험이 있다면 인덱스 번호로 원하는 배열에 접근하는 것을 볼 수 있을 것이다. 1234const arr = [&apos;Ap">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/29/data-structure-array-and-list/array01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Lubycon Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lubycon Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Connect Your Creativity with the World</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-data-structure-array-and-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/29/data-structure-array-and-list/" class="article-date">
+  <time datetime="2018-09-28T15:27:18.000Z" itemprop="datePublished">2018-09-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Array-란-무엇인가"><a href="#Array-란-무엇인가" class="headerlink" title="Array 란 무엇인가?"></a>Array 란 무엇인가?</h2><p>배열이란 간단히 이야기하면 여러개의 데이터의 묶음이라고 할 수 있다. 많은 개발자들이 배열하면 굉장히 익숙하게 와닿을 수 있는 것은 어느 언어에나 있는 배열이라는 자료구조가 존재하기 때문이다. 그래서 한번이라도 사용해본 경험이 있다면 인덱스 번호로 원하는 배열에 접근하는 것을 볼 수 있을 것이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'Apple'</span>, <span class="string">'Banana'</span>, <span class="string">'Pineapple'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>]); <span class="comment">// Apple</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>]); <span class="comment">// Banana</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">2</span>]); <span class="comment">// Pineapple</span></span><br></pre></td></tr></table></figure>
+<p>그래서 배열은 한 문장으로 표현한다고 한다면 <code>고유한 식별자(Index 번호) 와 그 식별자에 대응하는 데이터의 묶음</code> 으로 표현할 수 있다. 다른 한편으로는 고유한 식별자를 <code>첨자</code> 라고도 부른다.</p>
+<h3 id="Array-의-특성"><a href="#Array-의-특성" class="headerlink" title="Array 의 특성"></a>Array 의 특성</h3><p>위에서 Javascript 코드로 봤듯 배열은 접근에 굉장히 용이하다. 데이터들이 연속된 메모리 영역에 <code>순서대로</code> 저장되기 때문이다. 그러한 연속된 저장으로 인해 인덱스 번호를 이용해서 빠르게 접근을 할 수 있다. 이 것은 <code>임의 접근(Random access)</code> 이라고 표현한다. </p>
+<p>반대로 추가나 삭제를 해야하는 경우는 배열에서는 용이하지 않다. 위에서 설명한 예제를 가지고 데이터의 추가를 그림으로 표현한다면 아래와 같이 나온다.</p>
+<center><img src="/2018/09/29/data-structure-array-and-list/array01.png"></center>
+
+<p>만약 새로운 배열 <code>Melon</code> 을 Apple와 Banana 사이에 추가를 하려고 하는 경우 현재는 배열의 공간이 없다. 그래서 공간을 추가를 위해 맨 마지막에 새로운 공간을 추가했다.</p>
+<center><img src="/2018/09/29/data-structure-array-and-list/array02.png"></center>
+
+<p>그 후, Pineapple 부터해서 Banana 까지 차례로 오른쪽으로 하나씩 이동시킨다.</p>
+<center><img src="/2018/09/29/data-structure-array-and-list/array03.png"></center>
+
+<p>그렇게 공간이 남으면 해당 공간에다가 원하는 Melon을 추가할 수 있게 된다.</p>
+<center><img src="/2018/09/29/data-structure-array-and-list/array04.png"></center>
+
+<p>삭제 역시 위와 같이 쉽지 않다. 만약 위에서 추가한 Melon 을 다시 삭제하려고 한다면 아래와 같이 일단 먼저 Melon을 지운다.</p>
+<center><img src="/2018/09/29/data-structure-array-and-list/array05.png"></center>
+
+<p>배열은 연속된 메모리 영역에 순서대로 저장된다는 특성 때문에 위처럼 지우고 나면 해당 공간으로 다시 데이터들을 밀어줘야 한다. </p>
+<center><img src="/2018/09/29/data-structure-array-and-list/array06.png"></center>
+
+<center><img src="/2018/09/29/data-structure-array-and-list/array07.png"></center>
+
+<p>위처럼 다 지워주고 나면 남은 공간을 제거 해주면 된다.</p>
+<h2 id="List-란-무엇인가"><a href="#List-란-무엇인가" class="headerlink" title="List 란 무엇인가?"></a>List 란 무엇인가?</h2><p>위키 백과에서는 같은 값이 한 번 이상 존재할 수 있는 일련의 값이 모여있는 추상적 자료형이라고 정의 하고 있다. 나와 같은 Javascript 로 개발을 처음 접한 개발자에게는 List 와 Array 에 대한 차이를 단번에 이해하기 힘들 수도 있다.(물론 필자만 그럴 수도 있고..) list 역시 array 와 마찬가지로 데이터가 일직선으로 나열되어 있는 형태로 되어 있다. 그럼 array 와의 차이점이 무엇일까? 리스트는 array 와는 다르게 <code>연속된 위치가 아닌 떨어진 영역에 저장된다는 점</code>이다. </p>
+<center><img src="/2018/09/29/data-structure-array-and-list/list01.png"></center>
+
+<p>List 의 자료 구조는 위와 같이 생겼다. list 의 경우 pointer 라는 개념이 있는 데 이 pointer 란 <code>다음 메모리의 위치</code>를 가르키고 있다. List 를 대략적으로 알기 위해서는 보물 찾기를 생각하면 좋을 것 같다. 1번 목적지에서 다음 2번 목적지에 대한 하는 힌트 혹은 지도를 얻은 후, 2번에서는 다음 목적지를 찾는 것과 같다. 보물찾기를 해본 사람은 알겠지만 목적지에 다다르기 위해서는 차례로 1번 목적지부터 2번,3번.. n번 까지 다 거쳐서 목적지에 들려야함을 알 수 있다. 물론 당연히 1번 목적지를 거치지 않고 처음부터 2번으로 도전할 수 없듯이 말이다.</p>
+<h3 id="List-의-특성"><a href="#List-의-특성" class="headerlink" title="List 의 특성"></a>List 의 특성</h3><p>위에서 보물찾기와 같이 설명했듯 리스트 의 경우 배열과 다르게 임의 접근(Random access) 을 할 수 없다. 리시트 의 경우에는 순차 접근 혹은 시퀀셜 엑세스(Sequential access)를 이용해야 한다. 위의 리스트의 자료 구조에 대한 이미지를 보면 알 수 있 듯 만약 사용자가 <code>Pineapple</code> 에 접근하려 한다면 Apple 을 거쳐 Banana 를 거쳐서 접근을 해야 한다. 다만 리스트의 장점은 배열과는 다르게 공간이 한정되어 있는 것이 아니라 <code>동적 자료 구조</code> 여서 시시각각 데이터의 크기가 변할 수 있으며, 추가와 삭제가 배열과 다르게 훨씬 편하게 가능하다. 배열의 경우는 위에서 봤듯 요소를 추가할 때마다 공간을 확보해서 나머지 요소를 미루는 등의 성능을 저해하는 작업들이 많지만, 리스트의 경우 포인터 만 변경해주면 된다.</p>
+<p>만약 위에 처럼 Melon 이라는 요소를 추가해주려고 한다면 어떻게 하면 될까?</p>
+<center><img src="/2018/09/29/data-structure-array-and-list/list02.png"></center>
+
+<p>그런 경우라면 Apple의 포인터만 바꿔주면 될 것이다. 위에서 말했듯 리스트의 포인터는 다음 메모리의 위치를 가르키고 있다.</p>
+ <center><img src="/2018/09/29/data-structure-array-and-list/list03.png"></center>
+
+<p>마찬가지로 삭제 역시 포인터만 변경해주면 된다. 만약 Banana 에 대한 요소를 제거하려고 하면 포인터만 Melon 의 포인터만 변경해주면 된다.</p>
+ <center><img src="/2018/09/29/data-structure-array-and-list/list04.png"></center>
+
+<p>Banana 의 포인터는 따로 제거할 필요가 없다. 왜냐하면 어차피 해당 데이터에 접근을 할 때는 Apple 이라는 Head 에서부터 접근을 해야하기 때문에 Banana 로 접근할 수 없기 때문이다. 또한 이 영역 역시 이후에 재사용할 때는 덮어쓰기가 되기 때문에 별도로 삭제해줄 필요 역시 없다.</p>
+<h3 id="Array-와-List-의-각각-시간-계산"><a href="#Array-와-List-의-각각-시간-계산" class="headerlink" title="Array 와 List 의 각각 시간 계산"></a>Array 와 List 의 각각 시간 계산</h3><p>위에서처럼 Array 와 List 에는 각각의 차이점이 있다. 물론 필자와 같이 Javascript 로만 개발을 하는 경우에는 그 어떤 데이터를 선택해야 하는지에 대한 고민을 안해도 되지만 그 외의 서버 개발자에게는 아마 필요에 따라 데이터를 잘 선택하는 것이 중요하다. 아래는 Array 와 List 의 시간 계산에 대한 표이다. 아래의 표를 참고해서 상황과 목적에 맞는 데이터를 선택해서 사용하길 바란다.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Read</th>
+<th>Write/Update/Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Array</strong></td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td><strong>List</strong></td>
+<td>O(n)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/29/data-structure-array-and-list/" data-id="cjn6uy6nz000khvwgykac8apx" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">Array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list/">List</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list-and-array/">List and Array</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/29/data-structure-hash-map/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/27/data-structure-stack-and-queue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">큐(Queue)와 스택(Stack)이란 무엇인가? - (by Martin Kim)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/study-log/">study-log</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-table/">Hash table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">Heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/">Linear Algebra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-and-array/">List and Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop-programming/">OOP Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue-and-stack/">Queue and Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solid-principle/">SOLID Principle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">Tree</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/array/" style="font-size: 10px;">Array</a> <a href="/tags/data-structure/" style="font-size: 13.33px;">Data Structure</a> <a href="/tags/deep-learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/graph/" style="font-size: 10px;">Graph</a> <a href="/tags/hash-table/" style="font-size: 10px;">Hash table</a> <a href="/tags/heap/" style="font-size: 10px;">Heap</a> <a href="/tags/linear-algebra/" style="font-size: 13.33px;">Linear Algebra</a> <a href="/tags/list/" style="font-size: 10px;">List</a> <a href="/tags/list-and-array/" style="font-size: 10px;">List and Array</a> <a href="/tags/machine-learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/oop-programming/" style="font-size: 13.33px;">OOP Programming</a> <a href="/tags/queue/" style="font-size: 10px;">Queue</a> <a href="/tags/queue-and-stack/" style="font-size: 10px;">Queue and Stack</a> <a href="/tags/solid-principle/" style="font-size: 10px;">SOLID Principle</a> <a href="/tags/stack/" style="font-size: 10px;">Stack</a> <a href="/tags/tree/" style="font-size: 13.33px;">Tree</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">7월 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/13/about-heap/">about heap</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/13/concept-of-data-structure/">Concept of Data Structure (by Jim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/05/data-structure-tree/">트리(Tree)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/29/data-structure-hash-map/">해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/29/data-structure-array-and-list/">리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Lubycon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

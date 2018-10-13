@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>트리(Tree)이란 무엇인가? - (by Martin Kim) | Lubycon Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tree 란 무엇인가?위키 백과에 따르면 트리 구조 란 그래프의 일종으로 여러 노드가 한 노드를 가리킬 수 없는 구조이다. 라고 표현을 하고 있다. 이 말을 조금 더 자세히 풀어 보면 노드가 하나 이상의 자식이 있는 경우를 Tree 라 하며, 임의의 노드에서 다른 어떠한 노드로의 경로가 하나 밖에 존재하지 않는 데이터의 구조를 가진 것을 트리 구조라고 부른">
+<meta name="keywords" content="Tree,Graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="트리(Tree)이란 무엇인가? - (by Martin Kim)">
+<meta property="og:url" content="http://yoursite.com/2018/10/05/data-structure-tree/index.html">
+<meta property="og:site_name" content="Lubycon Blog">
+<meta property="og:description" content="Tree 란 무엇인가?위키 백과에 따르면 트리 구조 란 그래프의 일종으로 여러 노드가 한 노드를 가리킬 수 없는 구조이다. 라고 표현을 하고 있다. 이 말을 조금 더 자세히 풀어 보면 노드가 하나 이상의 자식이 있는 경우를 Tree 라 하며, 임의의 노드에서 다른 어떠한 노드로의 경로가 하나 밖에 존재하지 않는 데이터의 구조를 가진 것을 트리 구조라고 부른">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree01.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree02.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree03.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree04.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree05.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree06.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree07.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree08.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree09.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree10.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree11.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree12.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree13.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree14.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree15.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree16.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree17.png">
+<meta property="og:updated_time" content="2018-10-09T09:32:38.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="트리(Tree)이란 무엇인가? - (by Martin Kim)">
+<meta name="twitter:description" content="Tree 란 무엇인가?위키 백과에 따르면 트리 구조 란 그래프의 일종으로 여러 노드가 한 노드를 가리킬 수 없는 구조이다. 라고 표현을 하고 있다. 이 말을 조금 더 자세히 풀어 보면 노드가 하나 이상의 자식이 있는 경우를 Tree 라 하며, 임의의 노드에서 다른 어떠한 노드로의 경로가 하나 밖에 존재하지 않는 데이터의 구조를 가진 것을 트리 구조라고 부른">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/05/data-structure-tree/tree01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Lubycon Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lubycon Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Connect Your Creativity with the World</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-data-structure-tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/05/data-structure-tree/" class="article-date">
+  <time datetime="2018-10-04T15:27:18.000Z" itemprop="datePublished">2018-10-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      트리(Tree)이란 무엇인가? - (by Martin Kim)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Tree-란-무엇인가"><a href="#Tree-란-무엇인가" class="headerlink" title="Tree 란 무엇인가?"></a>Tree 란 무엇인가?</h2><p>위키 백과에 따르면 <code>트리 구조 란 그래프의 일종으로 여러 노드가 한 노드를 가리킬 수 없는 구조이다.</code> 라고 표현을 하고 있다. 이 말을 조금 더 자세히 풀어 보면 노드가 하나 이상의 자식이 있는 경우를 Tree 라 하며, 임의의 노드에서 다른 어떠한 노드로의 경로가 하나 밖에 존재하지 않는 데이터의 구조를 가진 것을 트리 구조라고 부른다. 인터넷에 자료구조 트리 라고 치면 바로 나오는 데이터 구조의 형태가 아래와 같이 노출된다. </p>
+<center><img src="/2018/10/05/data-structure-tree/tree01.png"></center>
+
+<p>트리 구조 에서 최상위 노드 A 를 <code>Root Node</code> 라 표현한다. 노드 B는 <code>Root Node 의 Child Node 이자, 노드 C 의 Parent Node</code> 이다. 노드 C 와 같이 Child 노드가 없는 노드의 경우를 <code>Leaf Node</code> 라 부른다.</p>
+<h3 id="이진-트리-Binary-Tree"><a href="#이진-트리-Binary-Tree" class="headerlink" title="이진 트리 - Binary Tree"></a>이진 트리 - Binary Tree</h3><p>자료 구조 Tree 에 대해서 공부를 한다고 하면 대부분이 이진 트리 혹은 이진 탐색 트리에 대해서 공부를 할 정도로 많은 사람들이 관심을 가장 많이 보이는 트리 자료 구조이다. 이진 트리 같은 경우는 <code>각각의 노드가 최대 2개의 자식 노드</code>를 가질 수 있다. 3개의 자식 노드를 가지는 트리 구조로는 <code>Ternary Tree</code> 가 있지만, 해당 블로그에서는 이진 트리에 대해서만 다룬다. 혹시라도 관심 있는 사람은 개인적으로 찾아보는 것을 추천한다.</p>
+<h4 id="균형-이진-트리-Balanced-Binary-Tree-와-불균형-이진-트리-Unbalanced-Binary-Tree"><a href="#균형-이진-트리-Balanced-Binary-Tree-와-불균형-이진-트리-Unbalanced-Binary-Tree" class="headerlink" title="균형 이진 트리(Balanced Binary Tree) 와 불균형 이진 트리(Unbalanced Binary Tree)"></a>균형 이진 트리(Balanced Binary Tree) 와 불균형 이진 트리(Unbalanced Binary Tree)</h4><p>균형 이진 트리(Balanced Binary Tree) 는 각자의 모든 노드가 가지는 Child Node 의 깊이가 1 이상 차이 나지 않는 이진 트리를 일컫는다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree02.png"></center>
+
+<h4 id="이진-트리-모양에-따른-종류"><a href="#이진-트리-모양에-따른-종류" class="headerlink" title="이진 트리 모양에 따른 종류"></a>이진 트리 모양에 따른 종류</h4><p>모양에 따른 분류는 대표적으로 포화 이진 트리(Full Binary Tree), 완전 이진 트리(Complete Binary Tree) 그리고 포화 이진 트리(Perfect Binary Tree) 등 총 3가지로 나누어서 볼 수 있다.</p>
+<h5 id="포화-이진-트리-Full-Binary-Tree"><a href="#포화-이진-트리-Full-Binary-Tree" class="headerlink" title="포화 이진 트리(Full Binary Tree)"></a>포화 이진 트리(Full Binary Tree)</h5><p>포화 이진 트리는 모든 노드가 자식 노드를 0개 혹은 2개를 갖는 구조를 말한다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree03.png"></center>
+
+<h5 id="완전-이진-트리-Complete-Binary-Tree"><a href="#완전-이진-트리-Complete-Binary-Tree" class="headerlink" title="완전 이진 트리(Complete Binary Tree)"></a>완전 이진 트리(Complete Binary Tree)</h5><p>완전 이진 트리는 Leaf Node 를 제외하고 모든 노드가 2개의 자식 노드를 가지거나 마지막 노드는 가능한 가장 왼쪽에 있는 트리 구조를 말한다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree04.png"></center>
+
+<h5 id="포화-이진-트리-Perfect-Binary-Tree"><a href="#포화-이진-트리-Perfect-Binary-Tree" class="headerlink" title="포화 이진 트리(Perfect Binary Tree)"></a>포화 이진 트리(Perfect Binary Tree)</h5><p>완전 이진 트리와 조금 헷갈릴 수 있는 트리 구조로서, 모든 내부 노드가 두개의 자식 노드를 가지고, 깊이 역시 동일한 트리 구조를 말한다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree05.png"></center>
+
+<h3 id="이진-탐색-트리-Binary-Search-Tree-특징"><a href="#이진-탐색-트리-Binary-Search-Tree-특징" class="headerlink" title="이진 탐색 트리(Binary Search Tree) 특징"></a>이진 탐색 트리(Binary Search Tree) 특징</h3><p>이진 탐색 트리는 이진 트리 자료 구조로서 다음과 같은 특징을 가진다.</p>
+<ol>
+<li>각 노드에는 값이 존재한다.</li>
+<li>노드의 왼쪽에는 타겟 노드 보다 작은 값들로 이루어져 있다.</li>
+<li>노드의 오른쪽에는 타겟 노드와 같은 값이거나 큰 값들로 이루어져 있다.</li>
+<li>좌우 하위 트리는 다시 이진 탐색 트리 여야 한다.</li>
+</ol>
+<h3 id="이진-탐색-트리-Binary-Search-Tree-구현"><a href="#이진-탐색-트리-Binary-Search-Tree-구현" class="headerlink" title="이진 탐색 트리(Binary Search Tree) 구현"></a>이진 탐색 트리(Binary Search Tree) 구현</h3><p>아래와 같은 데이터가 각각의 노드로 들어가 있다고 가정을 해보겠다.  </p>
+<center><img src="/2018/10/05/data-structure-tree/tree06.png"></center>
+
+<p>위에서 설명 했듯이, 노드의 왼쪽은 타겟 노드보다 작은 값이, 오른쪽으로는 타겟의 노드보다 큰 값이 있다. 이러한 특성을 이용하여 최소값과 최대값에 쉽게 접근할 수 있다. 아래의 사진과 같이 빨간 선을 따라 자식 노드의 왼쪽으로 이동하면 최소값 5 에 접근이 가능하고, 파랑선을 따라 자식 노드의 오른쪽으로 이동하면 최대값 49 에 접근할 수 있다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree07.png"></center>
+
+<p>그렇다면 이러한 트리에 노드를 추가하는 경우는 어떻게 될까?</p>
+<center><img src="/2018/10/05/data-structure-tree/tree08.png"></center>
+
+<p>위에서의 규칙과 마찬가지의 규칙을 적용한다고 하면 쉽게 추가가 된다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree09.png"></center>
+
+<p>새로운 노드 ‘4’ 를 기존의 이진 탐색 트리에 삽입을 하려고 한다. 일단 노드 4는 루트 노드 30 보다는 작은 값이라 왼쪽으로 이동시킬 것이다. 루트 노드 30 왼쪽의 자식 노드로는 15 가 있다. 이진 탐색 트리의 특징 중에는 <code>좌우 하위 트리는 다시 이진 탐색 트리여야 한다</code> 라는 것이 있다. 그렇다면 루트 노드인 30 의 하위 자식 노드 15 로 이동했을 때도 마찬가지로 이진 탐색 트리의 규칙을 따라야 한다. 4는 15보다 작은 수 이기 때문에 왼쪽으로 이동한다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree10.png"></center>
+
+<p>Leaf Node 에 해당하는 5 에 도달했을 때, 4 는 5 보다 작으므로 마찬가지로 왼쪽으로 이동된다. 그 후에는 하위에 더 이상 자식 노드가 없기 때문에 5 의 왼쪽 자식 노드로 추가된다. </p>
+<center><img src="/2018/10/05/data-structure-tree/tree11.png"></center>
+
+<p>삭제에 대한 기능은 하위 Leaf Node 인 경우에는 큰 문제 없이 삭제 된다. 만약 Leaf Node 인 34 를 삭제 하려고 한다면 그냥 삭제를 해주면 된다. </p>
+<center><img src="/2018/10/05/data-structure-tree/tree12.png"></center>
+
+<p>반대로 46과 같은 하위에 자식 노드가 있더라도 깊이가 1이 넘지 않은 경우는 왼쪽 자식 노드를 위로 올리면 된다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree13.png"></center><br><center><img src="/2018/10/05/data-structure-tree/tree14.png"></center>
+
+<p>그렇다면 위와 같은 방법으로 삭제를 하되 조금더 복잡한 이진 탐색 트리의 구조는 어떠할까?</p>
+<center><img src="/2018/10/05/data-structure-tree/tree15.png"></center>
+
+<p>위와 같은 구조에서 만약 중간에 껴있는 15를 삭제할 경우는 다른 것보다는 더 복잡하다. 방법은 두가지가 있다. 첫번째는 15의 왼쪽 자식 노드 중 최대값을 위로 올리는 방법이고, 두번째는 오른쪽 자식 노드 중 최소값을 위로 올리는 방법이 있다. 아래의 예제에서는 오른쪽 자식 노드의 최소값을 올리는 방식으로 진행해보겠다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree16.png"></center>
+
+<p>삭제된 15를 기준으로 오른쪽 노드를 살펴보면 17이 있다. 그리고 그 17 아래로 최소값 노드인 15가 있다. 이 값을 지원 타겟으로 이동시키면 된다.</p>
+<center><img src="/2018/10/05/data-structure-tree/tree17.png"></center>
+
+<p>이상으로 대략적인 이진 탐색 트리에 대해서 알아보았다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/05/data-structure-tree/" data-id="cjn6uy6o2000uhvwg53c3zccb" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graph/">Graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">Tree</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/13/concept-of-data-structure/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          Concept of Data Structure (by Jim)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/29/data-structure-hash-map/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">카테고리</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/study-log/">study-log</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">Graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-table/">Hash table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">Heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/">Linear Algebra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-and-array/">List and Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop-programming/">OOP Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue-and-stack/">Queue and Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solid-principle/">SOLID Principle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">Tree</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/array/" style="font-size: 10px;">Array</a> <a href="/tags/data-structure/" style="font-size: 13.33px;">Data Structure</a> <a href="/tags/deep-learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/graph/" style="font-size: 10px;">Graph</a> <a href="/tags/hash-table/" style="font-size: 10px;">Hash table</a> <a href="/tags/heap/" style="font-size: 10px;">Heap</a> <a href="/tags/linear-algebra/" style="font-size: 13.33px;">Linear Algebra</a> <a href="/tags/list/" style="font-size: 10px;">List</a> <a href="/tags/list-and-array/" style="font-size: 10px;">List and Array</a> <a href="/tags/machine-learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/oop-programming/" style="font-size: 13.33px;">OOP Programming</a> <a href="/tags/queue/" style="font-size: 10px;">Queue</a> <a href="/tags/queue-and-stack/" style="font-size: 10px;">Queue and Stack</a> <a href="/tags/solid-principle/" style="font-size: 10px;">SOLID Principle</a> <a href="/tags/stack/" style="font-size: 10px;">Stack</a> <a href="/tags/tree/" style="font-size: 13.33px;">Tree</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">7월 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/13/about-heap/">about heap</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/13/concept-of-data-structure/">Concept of Data Structure (by Jim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/05/data-structure-tree/">트리(Tree)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/29/data-structure-hash-map/">해쉬 테이블(Hash table)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/29/data-structure-array-and-list/">리스트(List) 와 배열(Array)이란 무엇인가? - (by Martin Kim)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Lubycon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
