@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{C8xY:function(e,c,t){"use strict";t.r(c);var a=t("qKvR"),r=t("8sVr"),b=t("vrFN"),n=t("7vrA"),s=t("3Z9Z"),m=t("JI6e"),i=t("Db4T"),u=t("YT1p");c.default=function(){var e=Object(u.a)();return Object(a.c)(r.a,{pageName:"Members"},Object(a.c)(b.a,{title:"Members"}),Object(a.c)(n.a,null,Object(a.c)(s.a,{id:"member-list"},e.map((function(e,c){return Object(a.c)(m.a,{key:c,xs:12,sm:6,md:4},Object(a.c)(i.a,{member:e}))})))))}}}]);
-//# sourceMappingURL=component---src-pages-members-tsx-5d3943ddd8e8a3d8eb3f.js.map
