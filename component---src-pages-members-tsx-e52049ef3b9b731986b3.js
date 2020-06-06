@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{C8xY:function(e,c,t){"use strict";t.r(c);var a=t("qKvR"),n=t("k0/U"),b=t("vT/v"),i=t("Ji2X"),r=t("tRbT"),s=t("Db4T"),m=t("YT1p");c.default=function(){var e=Object(m.a)();return Object(a.c)(n.a,{pageName:"Members",showTitle:!0},Object(a.c)(b.a,{title:"Members"}),Object(a.c)(i.a,null,Object(a.c)(r.a,{container:!0,spacing:3},e.map((function(e,c){return Object(a.c)(r.a,{key:c,xs:12,sm:6,md:4,item:!0},Object(a.c)(s.a,{member:e}))})))))}}}]);
-//# sourceMappingURL=component---src-pages-members-tsx-e52049ef3b9b731986b3.js.map
