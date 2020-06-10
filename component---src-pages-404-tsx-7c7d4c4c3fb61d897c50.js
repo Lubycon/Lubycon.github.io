@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{"i6+/":function(n,c,e){"use strict";e.r(c);var t=e("qKvR"),u=e("k0/U");c.default=function(){return Object(t.c)(u.a,{pageName:"404: Not found"},Object(t.c)("h1",null,"NOT FOUND"),Object(t.c)("p",null,"페이지를 찾을 수 없습니다"))}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-7c7d4c4c3fb61d897c50.js.map
