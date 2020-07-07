@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{"i6+/":function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),u=t.n(a),c=t("k0/U");n.default=function(){return u.a.createElement(c.a,{pageName:"404: Not found"},u.a.createElement("h1",null,"NOT FOUND"),u.a.createElement("p",null,"페이지를 찾을 수 없습니다"))}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-70184f846fec027e86fc.js.map
