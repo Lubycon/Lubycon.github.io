@@ -11,4 +11,7 @@
 <url> <loc>https://lubycon.io/blogs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lubycon.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lubycon.io/magazine/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lubycon.io/mentoring/apply-forms/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lubycon.io/mentoring/apply-result/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lubycon.io/mentoring/intro/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
